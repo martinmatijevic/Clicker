@@ -49,7 +49,7 @@ namespace Clicker
 
         private void kupljeno(object sender, EventArgs e)
         {
-            if (bodova >= cijena)
+            if (mbodova >= cijena)
             {
                 koliko = koliko + 1;
                 cijena = Convert.ToInt32(cijena * 1.15);
@@ -57,6 +57,5 @@ namespace Clicker
             }
             
         }
-
     }
 }

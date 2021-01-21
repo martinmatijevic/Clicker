@@ -17,13 +17,22 @@ namespace Clicker
         public int upgrade = 0;
         public int timerCount = 0;
 
-        public UserControl prvi = new UserControl1();
         
-
+        
 
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            UserControl1 prvi = new UserControl1();
+            prvi.BringToFront();
+            prvi.ime = "marko";
+            flowLayoutPanel1.Controls.Add(prvi);
+            
+
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)

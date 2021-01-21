@@ -41,6 +41,7 @@ namespace Clicker
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.userControl11 = new Clicker.UserControl1();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
@@ -132,6 +133,7 @@ namespace Clicker
             // 
             // splitContainer2.Panel1
             // 
+            this.splitContainer2.Panel1.Controls.Add(this.flowLayoutPanel1);
             this.splitContainer2.Panel1.Controls.Add(this.userControl11);
             // 
             // splitContainer2.Panel2
@@ -179,6 +181,13 @@ namespace Clicker
             this.timer1.Enabled = true;
             this.timer1.Interval = 50;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(19, 187);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(296, 230);
+            this.flowLayoutPanel1.TabIndex = 1;
             // 
             // userControl11
             // 
@@ -231,5 +240,6 @@ namespace Clicker
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Timer timer1;
         private UserControl1 userControl11;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
     }
 }
