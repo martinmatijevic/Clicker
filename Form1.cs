@@ -35,21 +35,21 @@ namespace Clicker
             mis.cijena = 10;
             mis.Dock = DockStyle.Top;
             splitContainer2.Panel1.Controls.Add(mis);
-            //mis.Visible = false;
+            mis.Visible = false;
                         
             gamepad.BringToFront();
             gamepad.ime = "Gamepad";
             gamepad.cijena = 25;
             gamepad.Dock = DockStyle.Top;
             splitContainer2.Panel1.Controls.Add(gamepad);
-            //gamepad.Visible = false;
+            gamepad.Visible = false;
                         
             robot.BringToFront();
             robot.ime = "Robot";
             robot.cijena = 50;
             robot.Dock = DockStyle.Top;
             splitContainer2.Panel1.Controls.Add(robot);
-            //robot.Visible = false;
+            robot.Visible = false;
 
             DateTime localDate = DateTime.Now;
             textBox1.Text += string.Format("{0:HH:mm tt}", localDate) + " Igra pokrenuta!" + Environment.NewLine;
@@ -84,10 +84,20 @@ namespace Clicker
             playerPoints += upgrade;
             label1.Text = playerPoints.ToString() + " points";
             mis.bodova = playerPoints;
-            if (playerPoints >= 10 && !misPokrenut)
+            if (playerPoints >= mis.cijena && !misPokrenut)
             {
                 mis.Visible = true;
                 misPokrenut = true;
+            }
+            if (playerPoints >= gamepad.cijena && !gamepadPokrenut)
+            {
+                gamepad.Visible = true;
+                gamepadPokrenut = true;
+            }
+            if (playerPoints >= robot.cijena && !robotPokrenut)
+            {
+                robot.Visible = true;
+                robotPokrenut = true;
             }
         }
 

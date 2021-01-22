@@ -55,7 +55,8 @@ namespace Clicker
                 mbodova -= cijena;
                 koliko += 1;
                 cijena *= 2;
-                MessageBox.Show(cijena + " " + koliko + " " + mbodova);
+                label2.Text = "Količina: " + koliko.ToString();
+                label3.Text = "Cijena: " + cijena.ToString();
             }
             
         }
