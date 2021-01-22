@@ -13,8 +13,7 @@ namespace Clicker
     public partial class Form1 : Form
     {
         
-        public int playerPoints = 0;
-        public int upgrade = 0;
+        static public int playerPoints = 0;
         public int timerCount = 0;
         public UserControl1 mis = new UserControl1();
         public bool misPokrenut = false;
@@ -57,9 +56,7 @@ namespace Clicker
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            playerPoints = 0;
-            upgrade = 0;
-            timerCount = 0;            
+                       
         }
 
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
@@ -81,9 +78,12 @@ namespace Clicker
         private void timer1_Tick(object sender, EventArgs e)
         {
             timerCount += 1;
-            playerPoints += upgrade;
+
+            if (mis.koliko > 0 && timerCount % 20 == 0) playerPoints = playerPoints + 1 * mis.koliko;
+            if (gamepad.koliko > 0 && timerCount % 20 == 0) playerPoints = playerPoints + 5 * gamepad.koliko;
+            if (robot.koliko > 0 && timerCount % 20 == 0) playerPoints = playerPoints + 25 * robot.koliko;
             label1.Text = playerPoints.ToString() + " points";
-            mis.bodova = playerPoints;
+            
             if (playerPoints >= mis.cijena && !misPokrenut)
             {
                 mis.Visible = true;

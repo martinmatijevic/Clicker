@@ -50,15 +50,17 @@ namespace Clicker
 
         private void kupljeno(object sender, EventArgs e)
         {
-            if (mbodova >= cijena)
+            if (Form1.playerPoints >= cijena)
             {
-                mbodova -= cijena;
+                Form1.playerPoints -= cijena;
                 koliko += 1;
                 cijena *= 2;
                 label2.Text = "Količina: " + koliko.ToString();
                 label3.Text = "Cijena: " + cijena.ToString();
+                DateTime localDate = DateTime.Now;
+                // Form1.textBox1.Text += string.Format("{0:HH:mm tt}", localDate) + " Kupljen " + ime + Environment.NewLine;
             }
-            
+
         }
 
         private void UserControl1_Load(object sender, EventArgs e)
