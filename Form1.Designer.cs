@@ -134,6 +134,7 @@ namespace Clicker
             // 
             // splitContainer2.Panel1
             // 
+            this.splitContainer2.Panel1.AutoScroll = true;
             this.splitContainer2.Panel1.BackColor = System.Drawing.Color.DarkOrange;
             // 
             // splitContainer2.Panel2
