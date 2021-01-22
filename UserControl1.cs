@@ -58,7 +58,7 @@ namespace Clicker
                 label2.Text = "Količina: " + koliko.ToString();
                 label3.Text = "Cijena: " + cijena.ToString();
                 DateTime localDate = DateTime.Now;
-                // Form1.textBox1.Text += string.Format("{0:HH:mm tt}", localDate) + " Kupljen " + ime + Environment.NewLine;
+                Form1.newText += string.Format("{0:HH:mm tt}", localDate) + ime + " kupljen!" + Environment.NewLine;
             }
 
         }

@@ -15,6 +15,8 @@ namespace Clicker
         
         static public int playerPoints = 0;
         public int timerCount = 0;
+        static public string newText = string.Empty;
+
         public UserControl1 mis = new UserControl1();
         public bool misPokrenut = false;
         public UserControl1 gamepad = new UserControl1();
@@ -51,7 +53,7 @@ namespace Clicker
             robot.Visible = false;
 
             DateTime localDate = DateTime.Now;
-            textBox1.Text += string.Format("{0:HH:mm tt}", localDate) + " Igra pokrenuta!" + Environment.NewLine;
+            textBox1.Text += string.Format("{0:HH:mm tt}", localDate) + "Igra pokrenuta!" + Environment.NewLine;
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -83,7 +85,12 @@ namespace Clicker
             if (gamepad.koliko > 0 && timerCount % 20 == 0) playerPoints = playerPoints + 5 * gamepad.koliko;
             if (robot.koliko > 0 && timerCount % 20 == 0) playerPoints = playerPoints + 25 * robot.koliko;
             label1.Text = playerPoints.ToString() + " points";
-            
+
+            if (newText != string.Empty)
+            {
+                textBox1.Text += newText;
+                newText = string.Empty;
+            }
             if (playerPoints >= mis.cijena && !misPokrenut)
             {
                 mis.Visible = true;
