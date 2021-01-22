@@ -16,9 +16,12 @@ namespace Clicker
         public int playerPoints = 0;
         public int upgrade = 0;
         public int timerCount = 0;
-
-        
-        
+        public UserControl1 mis = new UserControl1();
+        public bool misPokrenut = false;
+        public UserControl1 gamepad = new UserControl1();
+        public bool gamepadPokrenut = false;
+        public UserControl1 robot = new UserControl1();
+        public bool robotPokrenut = false;
 
         public Form1()
         {
@@ -27,19 +30,36 @@ namespace Clicker
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            UserControl1 prvi = new UserControl1();
-            prvi.BringToFront();
-            prvi.ime = "marko";
-            flowLayoutPanel1.Controls.Add(prvi);
-            
+            mis.BringToFront();
+            mis.ime = "Miš";
+            mis.cijena = 10;
+            mis.Dock = DockStyle.Top;
+            splitContainer2.Panel1.Controls.Add(mis);
+            //mis.Visible = false;
+                        
+            gamepad.BringToFront();
+            gamepad.ime = "Gamepad";
+            gamepad.cijena = 25;
+            gamepad.Dock = DockStyle.Top;
+            splitContainer2.Panel1.Controls.Add(gamepad);
+            //gamepad.Visible = false;
+                        
+            robot.BringToFront();
+            robot.ime = "Robot";
+            robot.cijena = 50;
+            robot.Dock = DockStyle.Top;
+            splitContainer2.Panel1.Controls.Add(robot);
+            //robot.Visible = false;
 
+            DateTime localDate = DateTime.Now;
+            textBox1.Text += string.Format("{0:HH:mm tt}", localDate) + " Igra pokrenuta!" + Environment.NewLine;
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             playerPoints = 0;
             upgrade = 0;
-            timerCount = 0;
+            timerCount = 0;            
         }
 
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
@@ -63,8 +83,14 @@ namespace Clicker
             timerCount += 1;
             playerPoints += upgrade;
             label1.Text = playerPoints.ToString() + " points";
+            mis.bodova = playerPoints;
+            if (playerPoints >= 10 && !misPokrenut)
+            {
+                mis.Visible = true;
+                misPokrenut = true;
+            }
         }
 
-        
+
     }
 }

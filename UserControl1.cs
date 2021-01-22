@@ -42,6 +42,7 @@ namespace Clicker
             set { mbodova = value; }
         }
 
+        
         public UserControl1()
         {
             InitializeComponent();
@@ -51,11 +52,19 @@ namespace Clicker
         {
             if (mbodova >= cijena)
             {
-                koliko = koliko + 1;
-                cijena = Convert.ToInt32(cijena * 1.15);
-                MessageBox.Show(cijena + " " + koliko);
+                mbodova -= cijena;
+                koliko += 1;
+                cijena *= 2;
+                MessageBox.Show(cijena + " " + koliko + " " + mbodova);
             }
             
+        }
+
+        private void UserControl1_Load(object sender, EventArgs e)
+        {
+            label1.Text = ime;
+            label2.Text = "Količina: " + koliko.ToString();
+            label3.Text = "Cijena: " + cijena.ToString();
         }
     }
 }
