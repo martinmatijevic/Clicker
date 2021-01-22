@@ -88,5 +88,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\gamepad.png" />
+    <Content Include="Resources\ironman.png" />
+    <Content Include="Resources\mis.png" />
+    <Content Include="Resources\robot.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

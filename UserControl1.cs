@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Clicker
 {
@@ -50,15 +51,20 @@ namespace Clicker
 
         private void kupljeno(object sender, EventArgs e)
         {
-            if (Form1.playerPoints >= cijena)
+            mbodova = Form1.playerPoints;
+            if (mbodova >= cijena)
             {
                 Form1.playerPoints -= cijena;
                 koliko += 1;
-                cijena *= 2;
+                cijena = (int)Math.Round(cijena*1.25);
                 label2.Text = "Količina: " + koliko.ToString();
                 label3.Text = "Cijena: " + cijena.ToString();
                 DateTime localDate = DateTime.Now;
-                Form1.newText += string.Format("{0:HH:mm tt}", localDate) + ime + " kupljen!" + Environment.NewLine;
+                Form1.newText += string.Format("{0:HH:mm tt}", localDate) + ime + " #" + koliko + " kupljen!" + Environment.NewLine;
+            }
+            else
+            {
+                MessageBox.Show("Nemaš dovoljno bodova! Nedostaje ti " + (cijena-mbodova) + ".");
             }
 
         }
@@ -68,6 +74,9 @@ namespace Clicker
             label1.Text = ime;
             label2.Text = "Količina: " + koliko.ToString();
             label3.Text = "Cijena: " + cijena.ToString();
+            var projectPath = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName;
+            string filePath = Path.Combine(projectPath, mputanja);
+            pictureBox1.ImageLocation = filePath;
         }
     }
 }
